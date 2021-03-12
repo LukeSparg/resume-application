@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
-import BackgroundPhoto from "../../assets/random.jpg";
+import BackgroundPhoto from "../../assets/black-square.png";
 import { Polygon } from "../../components/Polygon/Polygon";
 import { Animate } from "react-move";
 import './style.css';
+import randomColor from "randomcolor";
 
 export const LukeSparg = () => {
 
@@ -44,9 +45,15 @@ export const LukeSparg = () => {
                 display: display,
                 transform: "scale(" + ((2 - (position[0]) / 50)) + ")"
             }}>
-                <polygon points={vertex[0][0] + "," + vertex[0][1] + " " + 
-                vertex[1][0] + "," + vertex[1][1] + " " +
-                vertex[2][0] + "," + vertex[2][1]}/>
+                <polygon
+                style={{
+                    fill: randomColor({luminosity: "bright", hue:"monochrome"})
+                }}
+                points={
+                    vertex[0][0] + "," + vertex[0][1] + " " + 
+                    vertex[1][0] + "," + vertex[1][1] + " " +
+                    vertex[2][0] + "," + vertex[2][1]
+                }/>
             </svg>
         );
     }

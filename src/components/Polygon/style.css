@@ -1,6 +1,7 @@
 polygon {
     fill: grey;
     stroke-width: 1px;
+    transition: all 1000ms;
 }
 svg {
     position: absolute;

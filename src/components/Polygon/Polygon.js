@@ -7,7 +7,7 @@ export class Polygon {
         this.vertex1 = [this.random(20, 100), this.random(0, 30)];
         this.vertex2 = [this.random(80, 120), this.random(80, 120)];
         this.vertex3 = [this.random(0, 80), this.random(80, 120)];
-        this.position = [this.random(-50, 500), this.randomExluding(-10, 100, 7, 70)]
+        this.position = [this.random(-50, 500), this.randomExluding(-10, 100, 5, 80)]
         this.display = "inline";
     }
 
