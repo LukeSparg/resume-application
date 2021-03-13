@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import './style.css';
+import { random, randomExcluding, constrain } from "../../function/MathFunction";
 
 export class Polygon {
+    //Stores and manipulates data for a triangle
 
     constructor() {
-        this.vertex1 = [this.random(20, 100), this.random(0, 30)];
-        this.vertex2 = [this.random(80, 120), this.random(80, 120)];
-        this.vertex3 = [this.random(0, 80), this.random(80, 120)];
-        this.position = [this.random(-50, 500), this.randomExluding(-10, 100, 5, 80)]
-        this.display = "inline";
-    }
+        const { innerWidth: width, innerHeight: height } = window;
 
-    random(min, max) {
-        return(Math.random() * (max-min) + min);
-    }
-
-    randomExluding(min, max, minExclude, maxExclude) {
-        var number = Math.random() * ((max - min) - (maxExclude - minExclude)) + min;
-        if(number > minExclude) {
-            number += maxExclude - minExclude;
+        //Randomizes triangle vertices
+        this.vertex1 = [random(20, 100), random(0, 30)];
+        this.vertex2 = [random(80, 120), random(80, 120)];
+        this.vertex3 = [random(0, 80), random(80, 120)];
+        if(height > width) {
+            //For portrait orientation, we want more room in the middle
+            this.position = [random(-50, 500), randomExcluding(-15, 100, -10, 95)]
+        } else {
+            //For landscape orientation, we want more polygon room
+            this.position = [random(-50, 500), randomExcluding(-10, 100, 0, 80)]
         }
-        return number;
+        this.display = "inline";
     }
 
     getVertices() {
@@ -35,16 +34,22 @@ export class Polygon {
     }
 
     slide() {
-        if(this.position[0] < -10) {
+        //moves the position of all triangle to the left
+
+        const { innerWidth: width, innerHeight: height } = window;
+        if((this.position[0] * width) / 100 < -300) {
+            //makes triangles become invisible before moving them to the far right
             this.display = "none";
         } else {
+            //makes triangles visible otherwise
             this.display = "inline";
         }
-        if(this.position[0] < -30) {
-
-            this.position[0] = 200 + this.random(10, 150);
+        if((this.position[0] * width) / 100 < -350) {
+            //moves triangles to the far right, when they have moved left offscreen
+            this.position[0] = 200 + random(10, 150);
         } else {
-            this.position[0] = this.position[0] - (20 + (this.position[0] / 4));
+            //moves triangles to the left (more quickly the farther right they are)
+            this.position[0] = this.position[0] - constrain((20 + (this.position[0] / 3)), 10, 75);
         }
     }
 
