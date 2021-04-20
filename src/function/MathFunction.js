@@ -18,7 +18,7 @@ export function random(min, max) {
 }
 
 export function randomExcluding(min, max, minExclude, maxExclude) {
-    //Selects a random value between min and max, but between minExclude and maxExclude
+    //Selects a random value between min and max, but not between minExclude and maxExclude
     //ie. (0, 10, 2, 5) produces a number between 0-10 but not 2-5  
     var number = (Math.random() * ((max - min) - (maxExclude - minExclude))) + min;
     if(number > minExclude) {

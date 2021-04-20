@@ -1,28 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
 import BackgroundPhoto from "../../assets/black-square.png";
+import ProfilePhoto from "../../assets/Oyama_Lookout_Cropped.png";
 import { Polygon } from "../../components/Polygon/Polygon";
 import { Animate } from "react-move";
 import './style.css';
 import randomColor from "randomcolor";
+import { DarkModeButton } from "../../components/DarkModeButton/DarkModeButton";
 
 export const LukeSparg = () => {
 
     //Current catagory
     const [catagorySelected, setCatagorySelected] = useState();
+    const [darkModeClass, setDarkModeClass] = useState("");
 
     //List of all Polygons
     const [polygons, setPolygons] = useState([]);
-    const numberOfPolygons = 150;
+    const numberOfPolygons = 100;
 
-    //Called when a catagory is clicked
-    function handleCatagorySelector(event) {
+    //Detect if system is in Dark Mode
+    useEffect(() => {
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        const useDarkMode = mq.matches;
+        if(useDarkMode) {
+            setDarkModeClass("-dark");
+        }
+    }, []);
 
+    useEffect(() => {
         //Moves all polygons to the left
         for(var i = 0; i < polygons.length; i++) {
             polygons[i].slide();
         }
+    }, [catagorySelected, darkModeClass]);
+
+    function toggleDarkMode() {
+        // When the dark mode setting is change update the className
+        if(darkModeClass) {
+            setDarkModeClass("");
+        } else {
+            setDarkModeClass("-dark");
+        }
+    };
+
+    //Called when a catagory is clicked
+    function handleCatagorySelector(event) {
 
         //Changes the selected catagory
         setCatagorySelected(event.target.innerHTML);
@@ -56,7 +79,8 @@ export const LukeSparg = () => {
                 top: position[1] + "%",
                 left: position[0] + "%",
                 display: display,
-                transform: "scale(" + ((2 - (position[0]) / 75)) + ")"
+                transform: "scale(" + ((2 - (position[0]) / 75)) + ")",
+                opacity: (100 - position[0]) / 100,
             }}>
                 <polygon
                 style={{
@@ -72,7 +96,7 @@ export const LukeSparg = () => {
     }
 
     return (
-        <div className="main-container" style={{backgroundImage: "url(" + BackgroundPhoto + ")"}}>
+        <div className={"main-container" + darkModeClass}>
             <div className="polygon-container">
                 {createPolygons()}
                 {polygons.map((polygon, index) => (
@@ -83,27 +107,36 @@ export const LukeSparg = () => {
                 <Row>
                     <Col sm={{ size: 8, offset: 1 }}>
                         <Row>
-                            <Col sm="12">
-                                <h1>
-                                    Luke Sparg
-                                </h1>
+                            <Col sm="12" md="8">
+                                <Row>
+                                    <Col sm="12">
+                                        <h1>
+                                            Luke Sparg
+                                        </h1>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col sm="12">
+                                        <h2>
+                                            Software Developer
+                                        </h2>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col sm="12" md="4" className="profile-picture-container">
+                                <img className={"profile-picture" + darkModeClass} src={ProfilePhoto} />
                             </Col>
                         </Row>
-                        <Row>
-                            <Col sm="12">
-                                <h2>
-                                    Software Developer
-                                </h2>
-                            </Col>
-                        </Row>
-                        <Row className="divider" />
+                        <Row className={"divider" + darkModeClass} />
                         <Row className="catagory-selector">
                             <Col sm="12">
-                                <button onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
-                                <button onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
-                                <button onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
+                                    <button className={"carousel-button" + darkModeClass} onClick={function(event)  {handleCatagorySelector(event)}}>Education</button>
+                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
+                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
                             </Col>
                         </Row>
+                    </Col>
+                    <Col sm={{ offset: 1 }}>
                         <Row className="carousel">
                             <Col sm="12">
                                 <TransitionGroup component={null}>
@@ -133,6 +166,7 @@ export const LukeSparg = () => {
                     </Col>
                 </Row>
             </Container>
+            <DarkModeButton toggleDarkMode={toggleDarkMode} darkModeClass={darkModeClass} />
         </div>
     );
 }
