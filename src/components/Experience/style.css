@@ -1,0 +1,32 @@
+/* SVGs */
+.experience-navigation-arrow-left {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5em;
+    cursor: pointer;
+}
+.experience-navigation-arrow-right {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5em;
+    cursor: pointer;
+}
+
+/* Carousel */
+
+.sliding-carousel-experience-enter {
+    opacity: 0;
+}
+.sliding-carousel-experience-enter-active {
+    opacity: 1;
+    transition: all 1000ms;
+}
+.sliding-carousel-experience-exit {
+    opacity: 1;
+}
+.sliding-carousel-experience-exit-active {
+    opacity: 0;
+    transition: all 1000ms;
+}

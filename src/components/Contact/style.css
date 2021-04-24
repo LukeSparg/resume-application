@@ -1,0 +1,43 @@
+/*===============
+  Typography
+===============*/
+
+.contact-info a {
+    color: black;
+    font-size: 2.5em;
+}
+.contact-info-dark a {
+    color: white;
+    font-size: 2.5em;
+}
+
+.contact-info-submit-message {
+    display: inline;
+    margin: 1em;
+}
+
+/*===============
+  Inputs & Forms
+===============*/
+
+/* Text Input */
+.contact-info-text-area {
+    width: 100%;
+    height: 10em;
+    border: none;
+    border: 1px solid black;
+    border-radius: 0.5em;
+}
+
+/* Buttons */
+.contact-info-submit-button {
+    padding: 0.5em 1em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    font-weight: 600;
+    transition: all 100ms;
+}
+.contact-info-submit-button:hover {
+    border-radius: 0.8em;
+}
