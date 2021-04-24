@@ -92,6 +92,14 @@ body {
     transition: all 1000ms;
 }
 
+/* SVGs */
+svg {
+    transition: all 200ms;
+}
+.polygon-container svg {
+    transition: all 1000ms;
+}
+
 /*===============
   Typography
 ===============*/
