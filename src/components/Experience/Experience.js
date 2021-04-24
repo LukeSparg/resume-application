@@ -3,11 +3,13 @@ import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { ReactComponent as ArrowLeft } from "../../assets/arrow-left.svg"
 import { ReactComponent as ArrowRight } from "../../assets/arrow-right.svg"
+import { ReactComponent as Circle } from "../../assets/circle.svg"
+import { ReactComponent as CircleFilled } from "../../assets/circle-fill.svg"
 import { constrainLoop } from "../../function/MathFunction";
 
 import './style.css';
 
-export const Experience = () => {
+export const Experience = ({ darkModeClass }) => {
 
     const [transitioning, setTransitioning] = useState(false);
     const [currentTopic, setCurrentTopic] = useState(0);
@@ -60,6 +62,25 @@ export const Experience = () => {
 
     return (
         <TransitionGroup component={null}>
+            <Row className="experience-navigation-drawer">
+                <Col className="experience-navigation-left">
+                    <ArrowLeft className="experience-navigation-arrow-left" onClick={prevTopic} />
+                </Col>
+                <Col>
+                    <div className="experience-navigation-center">
+                        {topics.map((item, index) => 
+                            (index == currentTopic) ?
+                                <div className={"experience-navigation-center-icon-fill" + darkModeClass} key={index} />
+                                :
+                                <div className={"experience-navigation-center-icon-unfill" + darkModeClass} key={index} />
+                                
+                        )}
+                    </div>
+                </Col>
+                <Col className="experience-navigation-right">
+                    <ArrowRight className="experience-navigation-arrow-right" onClick={nextTopic} />
+                </Col>
+            </Row>
             {!transitioning && 
                 <CSSTransition classNames="sliding-carousel-experience" timeout={1000}>
                     <Row className="sliding-carousel-experience">
@@ -75,14 +96,6 @@ export const Experience = () => {
                     </Row>
                 </CSSTransition>
             }
-            <Row className="experience-navigation-drawer">
-                <Col className="experience-navigation-left">
-                    <ArrowLeft className="experience-navigation-arrow-left" onClick={prevTopic} />
-                </Col>
-                <Col className="experience-navigation-right">
-                    <ArrowRight className="experience-navigation-arrow-right" onClick={nextTopic} />
-                </Col>
-            </Row>
         </TransitionGroup>
     );
 }

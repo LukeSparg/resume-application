@@ -11,11 +11,12 @@ import { DarkModeButton } from "../../components/DarkModeButton/DarkModeButton";
 import { Experience } from "../../components/Experience/Experience";
 import { Contact } from "../../components/Contact/Contact";
 import { Education } from "../../components/Education/Education";
+import { Skills } from "../../components/Skills/Skills";
 
 export const LukeSparg = () => {
 
     //Current catagory
-    const [catagorySelected, setCatagorySelected] = useState("Contact");
+    const [catagorySelected, setCatagorySelected] = useState("Education");
     const [darkModeClass, setDarkModeClass] = useState("");
 
     //List of all Polygons
@@ -154,13 +155,15 @@ export const LukeSparg = () => {
                                     {catagorySelected === "Experience" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <Experience />
+                                            <Experience darkModeClass={darkModeClass} />
                                         </div>
                                     </CSSTransition>
                                     }
                                     {catagorySelected === "Skills" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
-                                        <div className="sliding-carousel">Skills</div>
+                                        <div className="sliding-carousel">
+                                            <Skills darkModeClass={darkModeClass} />
+                                        </div>
                                     </CSSTransition>
                                     }
                                     {catagorySelected === "Contact" &&
