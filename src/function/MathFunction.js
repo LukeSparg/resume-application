@@ -10,6 +10,14 @@ export function constrain(value, min, max) {
         return value;
     }
 }
+export function constrainLoop(value, min, max) {
+    //Constrain the value between min (inclusive) and max (exclusive) additional offset loops
+    //ie.   (2, 0, 3) => 2     (3, 0, 3) => 0       (16, 0, 10) => 6  
+    if(value < min) {
+        value = max + (value - min);
+    }
+    return min + ((value - min) % (max - min));
+}
 
 
 export function random(min, max) {

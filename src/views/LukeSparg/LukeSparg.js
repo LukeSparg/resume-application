@@ -8,11 +8,13 @@ import { Animate } from "react-move";
 import './style.css';
 import randomColor from "randomcolor";
 import { DarkModeButton } from "../../components/DarkModeButton/DarkModeButton";
+import { Experience } from "../../components/Experience/Experience";
+import { Contact } from "../../components/Contact/Contact";
 
 export const LukeSparg = () => {
 
     //Current catagory
-    const [catagorySelected, setCatagorySelected] = useState();
+    const [catagorySelected, setCatagorySelected] = useState("Contact");
     const [darkModeClass, setDarkModeClass] = useState("");
 
     //List of all Polygons
@@ -103,15 +105,15 @@ export const LukeSparg = () => {
                     renderPolygon(polygon, index)
                 ))}
             </div>
-            <Container>
+            <div className="content-container">
                 <Row>
-                    <Col sm={{ size: 8, offset: 1 }}>
+                    <Col sm={{ size: 5 }} className="sub-content-container-justified">
                         <Row>
                             <Col sm="12" md="8">
                                 <Row>
                                     <Col sm="12">
                                         <h1>
-                                            Luke Sparg
+                                            LUKE SPARG
                                         </h1>
                                     </Col>
                                 </Row>
@@ -130,29 +132,44 @@ export const LukeSparg = () => {
                         <Row className={"divider" + darkModeClass} />
                         <Row className="catagory-selector">
                             <Col sm="12">
-                                    <button className={"carousel-button" + darkModeClass} onClick={function(event)  {handleCatagorySelector(event)}}>Education</button>
+                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
                                     <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
                                     <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
+                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Contact</button>
                             </Col>
                         </Row>
                     </Col>
-                    <Col sm={{ offset: 1 }}>
+                    <Col sm={{ size: 5 }} className="sub-content-container">
                         <Row className="carousel">
                             <Col sm="12">
                                 <TransitionGroup component={null}>
                                     {catagorySelected === "Education" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <p>Education</p>
-                                            <p>Larger</p>
-                                            <p>And</p>
-                                            <p>Bigger</p>
+                                            <h2>UNIVERSITY OF BRITISH COLUMBIA</h2>
+                                            <h3>BSc. (Hons.) in Computer Science</h3>
+                                            <p>Since 2017, I have been completing a BSc. majoring in computer science. Throughout my education I have finished coursework in a variety of topics, some examples include:</p>
+                                            <ul>
+                                                <li>Algorithm Design</li>
+                                                <li>Applying A.I.</li>
+                                                <li>Data Analysis and Interpretation</li>
+                                                <li>Data Structures</li>
+                                                <li>Database Creation and Management</li>
+                                                <li>Object Oriented Programming</li>
+                                                <li>Parallel Computing</li>
+                                                <li>Software Engineering Project Life Cycles</li>
+                                                <li>Statistical Approaches to Machine Learning</li>
+                                                <li>Single and Multi Variable Calculus</li>
+                                                <li>Web Programming and Design</li>
+                                            </ul>
                                         </div>
                                     </CSSTransition>
                                     }
                                     {catagorySelected === "Experience" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
-                                        <div className="sliding-carousel">Experience</div>
+                                        <div className="sliding-carousel">
+                                            <Experience />
+                                        </div>
                                     </CSSTransition>
                                     }
                                     {catagorySelected === "Skills" &&
@@ -160,12 +177,19 @@ export const LukeSparg = () => {
                                         <div className="sliding-carousel">Skills</div>
                                     </CSSTransition>
                                     }
+                                    {catagorySelected === "Contact" &&
+                                    <CSSTransition classNames="sliding-carousel" timeout={1000}>
+                                        <div className="sliding-carousel">
+                                            <Contact darkModeClass={darkModeClass} />
+                                        </div>
+                                    </CSSTransition>
+                                    }
                                 </TransitionGroup>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
-            </Container>
+            </div>
             <DarkModeButton toggleDarkMode={toggleDarkMode} darkModeClass={darkModeClass} />
         </div>
     );
