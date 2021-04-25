@@ -88,7 +88,7 @@ export const LukeSparg = () => {
             }}>
                 <polygon
                 style={{
-                    fill: randomColor({luminosity: "bright", hue:"monochrome"})
+                    fill: randomColor({luminosity: "bright", hue: (darkModeClass ? "monochrome" : polygon.getColor())})
                 }}
                 points={
                     vertex[0][0] + "," + vertex[0][1] + " " + 

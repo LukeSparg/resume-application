@@ -3,9 +3,8 @@ import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { ReactComponent as ArrowLeft } from "../../assets/arrow-left.svg"
 import { ReactComponent as ArrowRight } from "../../assets/arrow-right.svg"
-import { ReactComponent as Circle } from "../../assets/circle.svg"
-import { ReactComponent as CircleFilled } from "../../assets/circle-fill.svg"
 import { constrainLoop } from "../../function/MathFunction";
+import { useSpring, animated } from 'react-spring'
 
 import './style.css';
 
@@ -42,6 +41,21 @@ export const Experience = ({ darkModeClass }) => {
             ]
         ]
     ];
+    //Slow pulse animation to be used by multiple divs in render
+    const pulseAnimation = useSpring({
+        from: {
+            opacity: 1
+        },
+        to: async (next, cancel) => {
+            let toggle = 1;
+            while (true) {
+                    await next({
+                        opacity: toggle
+                    });
+                    toggle = toggle === 1 ? 0.5 : 1;
+            }
+        }
+    });
 
     function nextTopic() {
         setCurrentTopic(constrainLoop(currentTopic + 1, 0, topics.length));
@@ -64,12 +78,14 @@ export const Experience = ({ darkModeClass }) => {
         <TransitionGroup component={null}>
             <Row className="experience-navigation-drawer">
                 <Col className="experience-navigation-left">
-                    <ArrowLeft className="experience-navigation-arrow-left" onClick={prevTopic} />
+                    <animated.div className="script-box" style={ pulseAnimation }>
+                        <ArrowLeft className="experience-navigation-arrow-left" onClick={prevTopic} />
+                    </animated.div>
                 </Col>
                 <Col>
                     <div className="experience-navigation-center">
                         {topics.map((item, index) => 
-                            (index == currentTopic) ?
+                            (index === currentTopic) ?
                                 <div className={"experience-navigation-center-icon-fill" + darkModeClass} key={index} />
                                 :
                                 <div className={"experience-navigation-center-icon-unfill" + darkModeClass} key={index} />
@@ -78,7 +94,9 @@ export const Experience = ({ darkModeClass }) => {
                     </div>
                 </Col>
                 <Col className="experience-navigation-right">
-                    <ArrowRight className="experience-navigation-arrow-right" onClick={nextTopic} />
+                    <animated.div className="script-box" style={ pulseAnimation }>
+                        <ArrowRight className="experience-navigation-arrow-right" onClick={nextTopic} />
+                    </animated.div>
                 </Col>
             </Row>
             {!transitioning && 
