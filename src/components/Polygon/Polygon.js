@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './style.css';
-import { random, randomExcluding, constrain } from "../../function/MathFunction";
+import { random, randomExcluding, constrain, constrainLoop } from "../../function/MathFunction";
 
 export class Polygon {
     //Stores and manipulates data for a triangle
@@ -20,17 +20,29 @@ export class Polygon {
             this.position = [random(-50, 500), randomExcluding(-10, 100, 0, 80)]
         }
         this.display = "inline";
+
+        //Set a random color with max saturation
+        let colorRGB = [0 , 0, 0];
+        let index = Math.floor(random(0, 3));
+        for(let i = 0; i < 2; i++) {
+            colorRGB[index] = random(0, 255);
+            index = constrainLoop(index + 1, 0, 3);
+        }
+        this.color = "#" + this.componentToHex(colorRGB[0]) + this.componentToHex(colorRGB[1]) + this.componentToHex(colorRGB[2]);
+
     }
 
     getVertices() {
         return([this.vertex1, this.vertex2, this.vertex3]);
     }
-
     getPosition() {
         return(this.position);
     }
     getDisplay() {
         return(this.display);
+    }
+    getColor() {
+        return(this.color);
     }
 
     slide() {
@@ -51,6 +63,11 @@ export class Polygon {
             //moves triangles to the left (more quickly the farther right they are)
             this.position[0] = this.position[0] - constrain((20 + (this.position[0] / 3)), 10, 75);
         }
+    }
+
+    componentToHex(c) {
+        var hex = c.toString(16);
+        return (hex.length === 1) ? "0" + hex : hex;
     }
 
 }
