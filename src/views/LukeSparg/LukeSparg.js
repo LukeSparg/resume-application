@@ -12,6 +12,7 @@ import { Experience } from "../../components/Experience/Experience";
 import { Contact } from "../../components/Contact/Contact";
 import { Education } from "../../components/Education/Education";
 import { Skills } from "../../components/Skills/Skills";
+import { FunFacts } from "../../components/FunFacts/FunFacts";
 
 export const LukeSparg = () => {
 
@@ -109,7 +110,7 @@ export const LukeSparg = () => {
             </div>
             <div className="content-container">
                 <Row>
-                    <Col sm={{ size: 5 }} className="sub-content-container-justified">
+                    <Col sm={{ size: 5 }} className="sub-content-container">
                         <Row>
                             <Col sm="12" md="8">
                                 <Row>
@@ -176,6 +177,11 @@ export const LukeSparg = () => {
                                 </TransitionGroup>
                             </Col>
                         </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className="fun-fact-container">
+                        <FunFacts darkModeClass={darkModeClass} eventState={catagorySelected} />
                     </Col>
                 </Row>
             </div>
