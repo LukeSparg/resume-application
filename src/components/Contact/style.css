@@ -17,6 +17,26 @@
 }
 
 /*===============
+  Images
+===============*/
+
+/* SVGs */
+.contact-info-link-icon {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    position: relative; 
+    fill: black;
+}
+.contact-info-link-icon-dark {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+    position: relative; 
+    fill: white;
+}
+
+/*===============
   Inputs & Forms
 ===============*/
 

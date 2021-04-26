@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
+import { ReactComponent as LinkedIn } from "../../assets/linkedin.svg"
+import { ReactComponent as GitHub } from "../../assets/github.svg"
+import { ReactComponent as Facebook } from "../../assets/facebook.svg"
+import { ReactComponent as Instagram } from "../../assets/instagram.svg"
 import emailjs from 'emailjs-com';
 import './style.css';
 
@@ -30,18 +34,36 @@ export const Contact = ({ darkModeClass }) => {
         <div className={"contact-info" + darkModeClass}>
             <Row>
                 <Col>
-                    <a href="https://linkedin.com/in/luke-sparg">LinkedIn</a>
+                    <a href="https://linkedin.com/in/luke-sparg" target="_blank">
+                        <LinkedIn className={"contact-info-link-icon" + darkModeClass} />
+                        LinkedIn
+                    </a>
+                </Col>
+                <Col className="contact-info-link-right">
+                    <a href="https://www.instagram.com/lukesparg/" target="_blank">
+                        <Instagram className={"contact-info-link-icon" + darkModeClass} />
+                        Instagram
+                    </a>
                 </Col>
             </Row>
             <Row className={"divider" + darkModeClass} sm="12" />
             <Row>
                 <Col>
-                    <a href="https://github.com/LukeSparg">GitHub</a>
+                    <a href="https://github.com/LukeSparg" target="_blank">
+                        <GitHub className={"contact-info-link-icon" + darkModeClass} />
+                        GitHub
+                    </a>
+                </Col>
+                <Col className="contact-info-link-right">
+                    <a href="https://www.facebook.com/luke.sparg" target="_blank">
+                        <Facebook className={"contact-info-link-icon" + darkModeClass} />
+                        Facebook
+                    </a>
                 </Col>
             </Row>
             <Row className={"divider" + darkModeClass} sm="12" />
             <form onSubmit={handleSubmit}>
-                <h3>Send me a message here:</h3>
+                <h3>Or send me a message here:</h3>
                 <p>Please include the best way for me to contact you.</p>
                 <textarea className="contact-info-text-area" onChange={e => setFormInfo(e.target.value)} />
                 <button className="contact-info-submit-button" type="submit">Send Message</button>
