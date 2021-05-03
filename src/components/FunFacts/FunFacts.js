@@ -12,11 +12,11 @@ export const FunFacts = ({ darkModeClass, eventState }) => {
 
     const facts = [
         ["I play the violin.", "(would love to be able to play Czardas by Monti one day)"],
-        ["I lived in Ireland from ages 2-4, but I don't remember it.", "(wish I did)"],
+        "I lived in Ireland from ages 2-4, but I don't remember it.",
         "I played the concert bells in highschool band.",
         ["I wanted to be a paleontologist when I was younger.", "(what kid doesn't love dinosaurs)"],
         "My favourite Hogwarts house is Hufflepuff.",
-        ["'Friends' is my favourite sitcom.", "(how unoriginal)"],
+        "'Friends' is my favourite sitcom.",
         ["My favourite strange word is 'jentacular.'", "(jen-TAK-yuh-luhr) adjective: Relating to breakfast."],
         ["My name is 01001100 01110101 01101011 01100101 in binary.", "(using ASCII)"],
         ["When I started learning to program I learnt JavaScript thinking it was Java.", "(Wow, how far we've come)"],
@@ -33,18 +33,20 @@ export const FunFacts = ({ darkModeClass, eventState }) => {
     }, [eventState]);
 
     return (
-        <div className="fun-facts-text">
+        <div>
             <p>
                 Fun Fact: 
                 <br />
                 {(facts[currentFactIndex].length === 2) ?
-                    <>
+                    <div id={currentFactIndex} className="fun-facts-text">
                         {facts[currentFactIndex][0]}
                         <br />
                         {facts[currentFactIndex][1]}
-                    </>
+                    </div>
                     :
-                    facts[currentFactIndex]
+                    <div id={currentFactIndex} className="fun-facts-text">
+                        {facts[currentFactIndex]}
+                    </div>
                 }
             </p>
         </div>

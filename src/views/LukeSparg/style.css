@@ -40,7 +40,7 @@ body {
     justify-content: center;
 }
 .fun-fact-container {
-    margin: 5em 2em;
+    margin: 3em 0em;
 }
 .divider {
     border-top: 1px solid black;
@@ -52,6 +52,10 @@ body {
 }
 
 /* Carousel */
+.carousel-container {
+    position: relative;
+    height: 40vh;
+}
 .sliding-carousel {
     position: absolute;
     width: 100%;

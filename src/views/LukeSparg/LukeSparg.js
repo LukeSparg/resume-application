@@ -141,9 +141,14 @@ export const LukeSparg = () => {
                                     <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Contact</button>
                             </Col>
                         </Row>
+                        <Row className="fun-fact-container">
+                            <Col>
+                                <FunFacts darkModeClass={darkModeClass} eventState={catagorySelected} />
+                            </Col>
+                        </Row>
                     </Col>
                     <Col sm={{ size: 5 }} className="sub-content-container">
-                        <Row className="carousel">
+                        <Row className="carousel-container">
                             <Col sm="12">
                                 <TransitionGroup component={null}>
                                     {catagorySelected === "Education" &&
@@ -177,11 +182,6 @@ export const LukeSparg = () => {
                                 </TransitionGroup>
                             </Col>
                         </Row>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="fun-fact-container">
-                        <FunFacts darkModeClass={darkModeClass} eventState={catagorySelected} />
                     </Col>
                 </Row>
             </div>

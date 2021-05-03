@@ -52,7 +52,7 @@ export const Experience = ({ darkModeClass }) => {
                     await next({
                         opacity: toggle
                     });
-                    toggle = toggle === 1 ? 0.4 : 1;
+                    toggle = (toggle === 1) ? 0.35 : 1;
             }
         }
     });
