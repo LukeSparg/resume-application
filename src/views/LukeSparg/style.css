@@ -35,8 +35,12 @@ body {
 .sub-content-container {
     margin: 0 2em;
 }
-.sub-content-container-justified {
-    margin: 0 2em;
+.profile-picture-container {
+    display: flex;
+    justify-content: center;
+}
+.fun-fact-container {
+    margin: 3em 0em;
 }
 .divider {
     border-top: 1px solid black;
@@ -46,12 +50,12 @@ body {
     border-top: 1px solid white;
     margin: 1em 0;
 }
-.profile-picture-container {
-    display: flex;
-    justify-content: center;
-}
 
 /* Carousel */
+.carousel-container {
+    position: relative;
+    height: 40vh;
+}
 .sliding-carousel {
     position: absolute;
     width: 100%;
