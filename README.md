@@ -4,6 +4,6 @@
 
 Built using react.
 To boot it up use:
-## npm start
+```npm start```
 
 
