@@ -132,9 +132,20 @@ h1 {
     font-weight: bold;
     font-size: 1.5em;
     color: black;
-    padding: 0 0.5em;
+    padding: 0 0.5em 1em 0.5em;
     transition: 0.5s;
     margin-bottom: 1em;
+}
+.carousel-button-active {
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    padding: 0 0.5em 1em 0.5em;
+    transition: 0.5s;
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
 }
 .carousel-button-dark {
     background-color: transparent;
@@ -142,9 +153,20 @@ h1 {
     font-weight: bold;
     font-size: 1.5em;
     color: white;
-    padding: 0 0.5em;
+    padding: 0 0.5em 1em 0.5em;
     transition: 0.5s;
     margin-bottom: 1em;
+}
+.carousel-button-active-dark {
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: white;
+    padding: 0 0.5em 1em 0.5em;
+    transition: 0.5s;
+    margin-bottom: 1em;
+    border-bottom: 1px solid white;
 }
 .carousel-button:hover {
     border-bottom: 1px solid black;

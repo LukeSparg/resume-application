@@ -23,8 +23,8 @@ export const FunFacts = ({ darkModeClass, eventState }) => {
         "My first pet was named Danny and he was a small white dog.",
         "I was born in South Africa. But moved when I was only 2 years old.",
         "I am constantly surprised by how good the 'Measure' app is on iOS.",
-        "I am on the cusp of aquarius and pisces.",
-        "I find brushing my teeth to be quite therapeutic."
+        "I am on the cusp between Aquarius and Pisces.",
+        "I play tennis in the summer and enjoy snowboarding in the winter."
     ];
     const [currentFactIndex, setCurrentFactIndex] = useState(Math.floor(random(0, facts.length)));
 
@@ -34,21 +34,20 @@ export const FunFacts = ({ darkModeClass, eventState }) => {
 
     return (
         <div>
-            <p>
-                Fun Fact: 
-                <br />
-                {(facts[currentFactIndex].length === 2) ?
-                    <div id={currentFactIndex} className="fun-facts-text">
-                        {facts[currentFactIndex][0]}
-                        <br />
-                        {facts[currentFactIndex][1]}
-                    </div>
-                    :
-                    <div id={currentFactIndex} className="fun-facts-text">
-                        {facts[currentFactIndex]}
-                    </div>
-                }
+            <p className="fun-facts-text">
+            Fun Fact: 
             </p>
+            {(facts[currentFactIndex].length === 2) ?
+                <div id={currentFactIndex} className="fun-facts-text">
+                    {facts[currentFactIndex][0]}
+                    <br />
+                    {facts[currentFactIndex][1]}
+                </div>
+                :
+                <div id={currentFactIndex} className="fun-facts-text">
+                    {facts[currentFactIndex]}
+                </div>
+            }
         </div>
     );
 }
