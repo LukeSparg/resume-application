@@ -1,9 +1,9 @@
-.skill-title-circle {
+.skill-title-box {
     margin: 1rem 0;
     width: 6rem;
     height: 6rem;
     background-color: black;
-    border-radius: 50%;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,12 +12,12 @@
     transition: all 500ms;
     cursor: pointer;
 }
-.skill-title-circle-dark {
+.skill-title-box-dark {
     margin: 1rem 0;
     width: 6rem;
     height: 6rem;
     background-color: white;
-    border-radius: 50%;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,12 +26,18 @@
     transition: all 500ms;
     cursor: pointer;
 }
-.skill-title-circle-active {
+.skill-title-box:hover {
+    border-radius: 1rem;
+}
+.skill-title-box-dark:hover {
+    border-radius: 1rem;
+}
+.skill-title-box-active {
     margin: 1rem 0;
     width: 8rem;
     height: 8rem;
-    background-color: black;
-    border-radius: 50%;
+    background-color: #0075e3;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,12 +46,12 @@
     transition: all 500ms;
     font-size: 2rem;
 }
-.skill-title-circle-active-dark {
+.skill-title-box-active-dark {
     margin: 1rem 0;
     width: 8rem;
     height: 8rem;
     background-color: white;
-    border-radius: 50%;
+    border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +59,4 @@
     color: black;
     transition: all 500ms;
     font-size: 2rem;
-}
-.skill-row {
-    cursor: pointer;
 }
