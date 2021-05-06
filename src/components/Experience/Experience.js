@@ -17,6 +17,7 @@ export const Experience = ({ darkModeClass }) => {
             "HONORS PROJECT", 
             "Pre-Trained Neural Language Models for Source Code Error Detection",
             "2020-2021",
+            "In my final year of university I have completed a honors project where I researched machine learning techniques for natural language and applied them to python source code.",
             [
                 "Used language models to detect errors in source code.",
                 "Trained and tested state-of-the-art transformer models.",
@@ -27,6 +28,7 @@ export const Experience = ({ darkModeClass }) => {
             "PART-TIME JUNIOR WEB DEVELOPER", 
             "Oracast",
             "2018-2019",
+            "During my first and second years in university, I gained experience creating webpages for clients at Oracast. This involved developing PHP+WordPress sites as well as creating custom solutions to fit individual clients needs.",
             [
                 "Created web solutions to fit a clients needs, as well as improve efficiency and accessibility.",
                 "Front-end design and development.",
@@ -37,6 +39,7 @@ export const Experience = ({ darkModeClass }) => {
             "PART-TIME BRAND AMBASSADOR", 
             "American Eagle Outfitters",
             "2018-2020",
+            "After working with a fantastic team at Urban Planet for 2+ years I moved with my team members to American Eagle to continue providing excellent customer service to guests in the retail industry.",
             [
                 "Communicated with guests to help them find garments and accessories.",
                 "Used POS systems to handle transactions.",
@@ -109,8 +112,9 @@ export const Experience = ({ darkModeClass }) => {
                 <h2>{topics[currentTopic][0]}</h2>
                 <h4>{topics[currentTopic][1]}</h4>
                 <p>{topics[currentTopic][2]}</p>
+                <p>{topics[currentTopic][3]}</p>
                 <ul>
-                    {topics[currentTopic][3].map((item, index) =>
+                    {topics[currentTopic][4].map((item, index) =>
                         <li key={index}>
                             {item}
                         </li>
