@@ -16,7 +16,7 @@ export const Education = () => {
                 <li>Database Creation and Management</li>
                 <li>Object Oriented Programming</li>
                 <li>Parallel Computing</li>
-                <li>Software Engineering Project Life Cycles</li>
+                <li>Software Engineering Principles</li>
                 <li>Statistical Approaches to Machine Learning</li>
                 <li>Single and Multi Variable Calculus</li>
                 <li>Web Programming and Design</li>

@@ -11,36 +11,39 @@ import './style.css';
 export const Experience = ({ darkModeClass }) => {
 
     const [transitioning, setTransitioning] = useState(false);
-    const [currentTopic, setCurrentTopic] = useState(0);
-    const topics = [
-        [
+    const [currentTopic, setCurrentTopic] = useState("honors");
+    const topics = {
+        "honors": [
             "HONORS PROJECT", 
             "Pre-Trained Neural Language Models for Source Code Error Detection",
+            "2020-2021",
             [
                 "Used language models to detect errors in source code.",
                 "Trained and tested state-of-the-art transformer models.",
                 "Evaluated the effectiveness of models as well as the boundaries between experimental models and models in application."
             ]
         ], 
-        [
+        "web dev": [
             "PART-TIME JUNIOR WEB DEVELOPER", 
             "Oracast",
+            "2018-2019",
             [
                 "Created web solutions to fit a clients needs, as well as improve efficiency and accessibility.",
                 "Front-end design and development.",
                 "Testing and bug fixing."
             ]
         ],
-        [
+        "sales": [
             "PART-TIME BRAND AMBASSADOR", 
             "American Eagle Outfitters",
+            "2018-2020",
             [
                 "Communicated with guests to help them find garments and accessories.",
                 "Used POS systems to handle transactions.",
                 "Organization and cleaning to ensure the best guest experience."
             ]
         ]
-    ];
+    };
     //Slow pulse animation to be used by multiple divs in render
     const pulseAnimation = useSpring({
         from: {
@@ -52,20 +55,10 @@ export const Experience = ({ darkModeClass }) => {
                     await next({
                         opacity: toggle
                     });
-                    toggle = (toggle === 1) ? 0.35 : 1;
+                    toggle = (toggle === 1) ? 0.3 : 1;
             }
         }
     });
-
-    function nextTopic() {
-        setCurrentTopic(constrainLoop(currentTopic + 1, 0, topics.length));
-        setTransitioning(true);
-    }
-
-    function prevTopic() {
-        setCurrentTopic(constrainLoop(currentTopic - 1, 0, topics.length));
-        setTransitioning(true);
-    }
 
     useEffect(() => {
         //When Transitioning return to the non-transitioning state
@@ -75,45 +68,56 @@ export const Experience = ({ darkModeClass }) => {
     }, [transitioning]);
 
     return (
-        <TransitionGroup component={null}>
-            <Row className="experience-navigation-drawer">
-                <Col className="experience-navigation-left">
-                    <animated.div className="script-box" style={ pulseAnimation }>
-                        <ArrowLeft className="experience-navigation-arrow-left" onClick={prevTopic} />
-                    </animated.div>
-                </Col>
-                <Col>
-                    <div className="experience-navigation-center">
-                        {topics.map((item, index) => 
-                            (index === currentTopic) ?
-                                <div className={"experience-navigation-center-icon-fill" + darkModeClass} key={index} />
-                                :
-                                <div className={"experience-navigation-center-icon-unfill" + darkModeClass} key={index} />
-                                
-                        )}
-                    </div>
-                </Col>
-                <Col className="experience-navigation-right">
-                    <animated.div className="script-box" style={ pulseAnimation }>
-                        <ArrowRight className="experience-navigation-arrow-right" onClick={nextTopic} />
-                    </animated.div>
-                </Col>
-            </Row>
-            {!transitioning && 
-                <CSSTransition classNames="sliding-carousel-experience" timeout={1000}>
-                    <Row className="sliding-carousel-experience">
-                        <Col>
-                            <h2>{topics[currentTopic][0]}</h2>
-                            <h3>{topics[currentTopic][1]}</h3>
-                            <ul>
-                                {topics[currentTopic][2].map((item, index) => 
-                                    <li key={index}>{item}</li>
-                                )}
-                            </ul>
-                        </Col>
-                    </Row>
-                </CSSTransition>
-            }
-        </TransitionGroup>
+        <>
+        <Row>
+            <Col sm="4">
+                <Row>
+                    {(currentTopic !== "honors") ?
+                        <animated.div style={ pulseAnimation } onClick={() => setCurrentTopic("honors")} className={"experience-title-box" + darkModeClass}>
+                            HONORS
+                        </animated.div>
+                        :
+                        <div onClick={() => setCurrentTopic("honors")} className={"experience-title-box-active" + darkModeClass}>
+                            HONORS
+                        </div>
+                    }
+                </Row>
+                <Row>
+                    {(currentTopic !== "web dev") ?
+                        <animated.div style={ pulseAnimation } onClick={() => setCurrentTopic("web dev")} className={"experience-title-box" + darkModeClass}>
+                            WEB DEV
+                        </animated.div>
+                        :
+                        <div onClick={() => setCurrentTopic("web dev")} className={"experience-title-box-active" + darkModeClass}>
+                            WEB DEV
+                        </div>
+                    }
+                </Row>
+                <Row>
+                    {(currentTopic !== "sales") ?
+                        <animated.div style={ pulseAnimation } onClick={() => setCurrentTopic("sales")} className={"experience-title-box" + darkModeClass}>
+                            SALES
+                        </animated.div>
+                        :
+                        <div onClick={() => setCurrentTopic("sales")} className={"experience-title-box-active" + darkModeClass}>
+                            SALES
+                        </div>
+                    }
+                </Row>
+            </Col>
+            <Col sm="8">
+                <h2>{topics[currentTopic][0]}</h2>
+                <h4>{topics[currentTopic][1]}</h4>
+                <p>{topics[currentTopic][2]}</p>
+                <ul>
+                    {topics[currentTopic][3].map((item, index) =>
+                        <li key={index}>
+                            {item}
+                        </li>
+                    )}
+                </ul>
+            </Col>
+        </Row>
+        </>
     );
 }

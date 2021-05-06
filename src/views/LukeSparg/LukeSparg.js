@@ -129,16 +129,16 @@ export const LukeSparg = () => {
                                 </Row>
                             </Col>
                             <Col sm="12" md="4" className="profile-picture-container">
-                                <img className={"profile-picture" + darkModeClass} src={ProfilePhoto} />
+                                <img className={"profile-picture" + darkModeClass} src={ProfilePhoto} alt="Profile Picture" />
                             </Col>
                         </Row>
                         <Row className={"divider" + darkModeClass} />
                         <Row className="catagory-selector">
                             <Col sm="12">
-                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
-                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
-                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
-                                    <button className={"carousel-button" + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Contact</button>
+                                    <button className={"carousel-button" + ((catagorySelected==="Education") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
+                                    <button className={"carousel-button" + ((catagorySelected==="Experience") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
+                                    <button className={"carousel-button" + ((catagorySelected==="Skills") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
+                                    <button className={"carousel-button" + ((catagorySelected==="Contact") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Contact</button>
                             </Col>
                         </Row>
                         <Row className="fun-fact-container">
