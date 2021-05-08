@@ -13,6 +13,7 @@ import { Contact } from "../../components/Contact/Contact";
 import { Education } from "../../components/Education/Education";
 import { Skills } from "../../components/Skills/Skills";
 import { FunFacts } from "../../components/FunFacts/FunFacts";
+import { References } from "../../components/References/References";
 
 export const LukeSparg = () => {
 
@@ -135,10 +136,11 @@ export const LukeSparg = () => {
                         <Row className={"divider" + darkModeClass} />
                         <Row className="catagory-selector">
                             <Col sm="12">
-                                    <button className={"carousel-button" + ((catagorySelected==="Education") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
-                                    <button className={"carousel-button" + ((catagorySelected==="Experience") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
-                                    <button className={"carousel-button" + ((catagorySelected==="Skills") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
-                                    <button className={"carousel-button" + ((catagorySelected==="Contact") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Contact</button>
+                                <button className={"carousel-button" + ((catagorySelected==="Education") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
+                                <button className={"carousel-button" + ((catagorySelected==="Experience") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Experience</button>
+                                <button className={"carousel-button" + ((catagorySelected==="Skills") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Skills</button>
+                                <button className={"carousel-button" + ((catagorySelected==="References") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>References</button>
+                                <button className={"carousel-button" + ((catagorySelected==="Contact") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Contact</button>
                             </Col>
                         </Row>
                         <Row className="fun-fact-container">
@@ -169,6 +171,13 @@ export const LukeSparg = () => {
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
                                             <Skills darkModeClass={darkModeClass} />
+                                        </div>
+                                    </CSSTransition>
+                                    }
+                                    {catagorySelected === "References" &&
+                                    <CSSTransition classNames="sliding-carousel" timeout={1000}>
+                                        <div className="sliding-carousel">
+                                            <References darkModeClass={darkModeClass} />
                                         </div>
                                     </CSSTransition>
                                     }
