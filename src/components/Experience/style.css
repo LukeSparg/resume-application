@@ -68,13 +68,10 @@
 }
 
 @media screen and (max-width: 900px) {
-    .shrink-mobile-text {
-        font-size: 0.9rem;
-    }
     .experience-title-box-active {
         margin: 1rem 0;
         width: 8rem;
-        height: 6rem;
+        height: 3rem;
         background-color: #0075e3;
         border-radius: 0.5rem;
         display: flex;
@@ -83,12 +80,12 @@
         text-align: center;
         color: white;
         transition: all 500ms;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .experience-title-box-active-dark {
         margin: 1rem 0;
         width: 8rem;
-        height: 6rem;
+        height: 3rem;
         background-color: white;
         border-radius: 0.5rem;
         display: flex;
@@ -97,6 +94,36 @@
         text-align: center;
         color: black;
         transition: all 500ms;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+    .experience-title-box {
+        margin: 1rem 0;
+        width: 6rem;
+        height: 2rem;
+        background-color: black;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        transition: all 500ms;
+        cursor: pointer;
+        font-size: 0.9rem;
+    }
+    .experience-title-box-dark {
+        margin: 1rem 0;
+        width: 6rem;
+        height: 2rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: black;
+        transition: all 500ms;
+        cursor: pointer;
+        font-size: 0.9rem;
     }
 }

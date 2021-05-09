@@ -33,7 +33,7 @@ export const FunFacts = ({ darkModeClass, eventState }) => {
     }, [eventState]);
 
     return (
-        <div>
+        <div className={"text-shadow" + darkModeClass}>
             <p className="fun-facts-text">
             Fun Fact: 
             </p>

@@ -51,6 +51,11 @@ body {
 .fun-fact-container {
     margin: 3em 0em;
 }
+@media screen and (max-width: 900px) and (max-height: 700px) {
+    .fun-fact-container {
+        margin: -1rem;
+    }
+}
 .divider {
     border-top: 1px solid black;
     margin: 1em 0;
@@ -132,6 +137,29 @@ h1 {
         text-align: center;
     }
 }
+.text-shadow {
+    text-shadow: 0px 0px 3px #FFFFFF;
+}
+.text-shadow-dark {
+    text-shadow: 0px 0px 3px #000000;
+}
+
+@media screen and (max-width: 900px) {
+    .shrink-mobile-text-sm {
+        font-size: 0.9rem;
+    }
+    .shrink-mobile-text-xs {
+        font-size: 0.8rem;
+    }
+}
+@media screen and (max-width: 900px) and (min-height: 700px) {
+    .shrink-mobile-text-sm {
+        font-size: 1rem;
+    }
+    .shrink-mobile-text-xs {
+        font-size: 1rem;
+    }
+}
 
 /*===============
   Inputs & Forms
@@ -199,7 +227,7 @@ h1 {
 .mobile-nav-menu-button {
     position: absolute;
     right: 3em;
-    top: 3em;
+    top: 1em;
 }
 .mobile-nav-menu-button:hover {
     cursor: pointer;
