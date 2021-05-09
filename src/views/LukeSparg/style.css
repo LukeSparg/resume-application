@@ -12,6 +12,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     color: black;
     font-weight: 600;
     background-color: white;
@@ -22,6 +23,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     color: white;
     font-weight: 500;
     background-color: black;
@@ -31,6 +33,13 @@ body {
     width: 100%;
     position: absolute;
     top: 20%;
+}
+@media screen and (max-width: 900px) {
+    .content-container {
+        width: 100%;
+        position: absolute;
+        top: 13%;
+    }
 }
 .sub-content-container {
     margin: 0 2em;
@@ -119,7 +128,10 @@ h1 {
     h2 {
         font-size: 1.5em;
     }
-  }
+    .sub-content-container {
+        text-align: center;
+    }
+}
 
 /*===============
   Inputs & Forms
@@ -176,12 +188,6 @@ h1 {
     border-bottom: 3px solid white;
 }
 
-@media (orientation: portrait) {
-    .carousel-button {
-        font-size: 0.9em;
-    }
-}
-
 .dark-mode-button {
     position: absolute;
     right: 3em;
@@ -190,3 +196,12 @@ h1 {
 .dark-mode-button:hover {
     cursor: pointer;
 }
+.mobile-nav-menu-button {
+    position: absolute;
+    right: 3em;
+    top: 3em;
+}
+.mobile-nav-menu-button:hover {
+    cursor: pointer;
+}
+

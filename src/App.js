@@ -6,7 +6,7 @@ import { LukeSparg } from "./views/LukeSparg/LukeSparg";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/" >
           <LukeSparg />

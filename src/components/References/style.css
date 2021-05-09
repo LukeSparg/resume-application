@@ -1,3 +1,9 @@
+
+@media screen and (max-width: 900px) {
+    .references-container {
+        margin-top: 2rem;
+    }
+}
 .reference-quote {
     font-style: italic;
 }

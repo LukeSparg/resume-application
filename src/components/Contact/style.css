@@ -4,17 +4,28 @@
 
 .contact-info a {
     color: black;
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 .contact-info-dark a {
     color: white;
-    font-size: 2.5em;
+    font-size: 2.5rem;
+}
+@media screen and (max-width: 900px) {
+    .contact-info a {
+        color: black;
+        font-size: 2rem;
+    }
+    .contact-info-dark a {
+        color: white;
+        font-size: 2rem;
+    }
 }
 
 .contact-info-submit-message {
     display: inline;
     margin: 1em;
 }
+
 
 /*===============
   Images
