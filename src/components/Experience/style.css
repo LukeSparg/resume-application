@@ -60,3 +60,43 @@
     transition: all 500ms;
     font-size: 1.5rem;
 }
+.experience-title-box-container-mobile {
+    display: flex;
+}
+.experience-title-box-container-mobile div {
+    margin: 0rem 0.5rem 1rem 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+    .shrink-mobile-text {
+        font-size: 0.9rem;
+    }
+    .experience-title-box-active {
+        margin: 1rem 0;
+        width: 8rem;
+        height: 6rem;
+        background-color: #0075e3;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        transition: all 500ms;
+        font-size: 1.5rem;
+    }
+    .experience-title-box-active-dark {
+        margin: 1rem 0;
+        width: 8rem;
+        height: 6rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: black;
+        transition: all 500ms;
+        font-size: 1.5rem;
+    }
+}
