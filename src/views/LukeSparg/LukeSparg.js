@@ -14,6 +14,7 @@ import { Education } from "../../components/Education/Education";
 import { Skills } from "../../components/Skills/Skills";
 import { FunFacts } from "../../components/FunFacts/FunFacts";
 import { References } from "../../components/References/References";
+import { MobileNavMenuButton } from "../../components/MobileNavMenuButton/MobileNavMenuButton";
 
 export const LukeSparg = () => {
 
@@ -34,6 +35,26 @@ export const LukeSparg = () => {
         }
     }, []);
 
+    //Setting up a isMobile variable to detect if the view should be mobile friendly
+    const [width, setWidth] = useState(window.innerWidth);
+    const [isMobile, setIsMobile] = useState(false);
+    //When viewed from mobile this will track if the nav menu is open.
+    const [mobileNavMenu, setMobileNavMenu] = useState(true);
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    //Calls above function when resized
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+    //Whenever the width changes update the isMobile const
+    useEffect(() => {
+        setIsMobile(width <= 850);
+    }, [width]);
+
     useEffect(() => {
         //Moves all polygons to the left
         for(var i = 0; i < polygons.length; i++) {
@@ -52,9 +73,11 @@ export const LukeSparg = () => {
 
     //Called when a catagory is clicked
     function handleCatagorySelector(event) {
-
         //Changes the selected catagory
         setCatagorySelected(event.target.innerHTML);
+        if(isMobile) {
+            setMobileNavMenu(false);
+        }
     }
 
     //Generates polygons based on numberOfPolygons defined earlier
@@ -111,8 +134,9 @@ export const LukeSparg = () => {
             </div>
             <div className="content-container">
                 <Row>
-                    <Col sm={{ size: 5 }} className="sub-content-container">
-                        <Row>
+                    {(!isMobile || mobileNavMenu) &&
+                    <Col sm={{ size: 10 }} md="5" className="sub-content-container">
+                        <Row className="main-profile-info">
                             <Col sm="12" md="8">
                                 <Row>
                                     <Col sm="12">
@@ -148,8 +172,9 @@ export const LukeSparg = () => {
                                 <FunFacts darkModeClass={darkModeClass} eventState={catagorySelected} />
                             </Col>
                         </Row>
-                    </Col>
-                    <Col sm={{ size: 5 }} className="sub-content-container">
+                    </Col>}
+                    {(!isMobile || !mobileNavMenu) &&
+                    <Col sm={{ size: 10 }} md="5" className="sub-content-container">
                         <Row className="carousel-container">
                             <Col sm="12">
                                 <TransitionGroup component={null}>
@@ -163,14 +188,14 @@ export const LukeSparg = () => {
                                     {catagorySelected === "Experience" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <Experience darkModeClass={darkModeClass} />
+                                            <Experience darkModeClass={darkModeClass} isMobile={isMobile} />
                                         </div>
                                     </CSSTransition>
                                     }
                                     {catagorySelected === "Skills" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <Skills darkModeClass={darkModeClass} />
+                                            <Skills darkModeClass={darkModeClass} isMobile={isMobile} />
                                         </div>
                                     </CSSTransition>
                                     }
@@ -184,17 +209,18 @@ export const LukeSparg = () => {
                                     {catagorySelected === "Contact" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <Contact darkModeClass={darkModeClass} />
+                                            <Contact darkModeClass={darkModeClass} isMobile={isMobile} />
                                         </div>
                                     </CSSTransition>
                                     }
                                 </TransitionGroup>
                             </Col>
                         </Row>
-                    </Col>
+                    </Col>}
                 </Row>
             </div>
             <DarkModeButton toggleDarkMode={toggleDarkMode} darkModeClass={darkModeClass} />
+            {isMobile && <MobileNavMenuButton mobileNavMenu={mobileNavMenu} setMobileNavMenu={setMobileNavMenu} />}
         </div>
     );
 }

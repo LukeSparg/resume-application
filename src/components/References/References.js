@@ -5,9 +5,9 @@ import './style.css';
 export const References = ({ darkModeClass }) => {
 
     return (
-        <>
+        <div className="references-container">
             <Row>
-                <Col>
+                <Col xs="11" md="12">
                     <p className="reference-quote">
                         "... I would highly recommend Luke to anyone.
                         He is a very well-rounded individual and is capable of working alone or in a team environment.
@@ -22,14 +22,16 @@ export const References = ({ darkModeClass }) => {
                     </p>
                 </Col>
             </Row>
-            <Row className={"divider" + darkModeClass} />
+            <Col xs="11" md="12">
+                <Row className={"divider" + darkModeClass} />
+            </Col>
             <Row>
-                <Col>
+                <Col xs="11" md="12">
                     <p>
                         For the full reference, as well as additional references, please contact me in the contact tab.
                     </p>
                 </Col>
             </Row>
-        </>
+        </div>
     );
 }

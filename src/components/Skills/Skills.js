@@ -8,7 +8,7 @@ import { useSpring, animated } from 'react-spring'
 
 import './style.css';
 
-export const Skills = ({ darkModeClass }) => {
+export const Skills = ({ darkModeClass, isMobile }) => {
 
     const [activeSkill, setActiveSkill] = useState("data");
     const skillInfo = {
@@ -65,6 +65,7 @@ export const Skills = ({ darkModeClass }) => {
 
     return (
         <Row>
+            {!isMobile &&
             <Col sm="4">
                 <Row>
                     {(activeSkill !== "data") ?
@@ -99,11 +100,41 @@ export const Skills = ({ darkModeClass }) => {
                         </div>
                     }
                 </Row>
-            </Col>
-            <Col sm="8">
+            </Col>}
+            {isMobile &&
+            <Col xs="11" className="skill-title-box-container-mobile">
+                    {(activeSkill !== "data") ?
+                        <animated.div style={ pulseAnimation } onClick={() => setActiveSkill("data")} className={"skill-title-box" + darkModeClass}>
+                            DATA
+                        </animated.div>
+                        :
+                        <div onClick={() => setActiveSkill("data")} className={"skill-title-box-active" + darkModeClass}>
+                            DATA
+                        </div>
+                    }
+                    {(activeSkill !== "web") ?
+                        <animated.div style={ pulseAnimation } onClick={() => setActiveSkill("web")} className={"skill-title-box" + darkModeClass}>
+                            WEB
+                        </animated.div>
+                        :
+                        <div onClick={() => setActiveSkill("web")} className={"skill-title-box-active" + darkModeClass}>
+                            WEB
+                        </div>
+                    }
+                    {(activeSkill !== "extra") ?
+                        <animated.div style={ pulseAnimation } onClick={() => setActiveSkill("extra")} className={"skill-title-box" + darkModeClass}>
+                            EXTRA
+                        </animated.div>
+                        :
+                        <div onClick={() => setActiveSkill("extra")} className={"skill-title-box-active" + darkModeClass}>
+                            EXTRA
+                        </div>
+                    }
+            </Col>}
+            <Col xs="11" md="8">
                 <h2>{skillInfo[activeSkill]["title"]}</h2>
-                <p>{skillInfo[activeSkill]["text"]}</p>
-                <ul>
+                <p className="shrink-mobile-text">{skillInfo[activeSkill]["text"]}</p>
+                <ul className="shrink-mobile-text">
                     {skillInfo[activeSkill]["list"].map((item, index) =>
                         <li key={index}>
                             {item}
