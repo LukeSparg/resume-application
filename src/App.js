@@ -8,8 +8,8 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact>
-          <Home />
+        <Route path="/" >
+          <LukeSparg />
         </Route>
         <Route path="/lukesparg" exact>
           <LukeSparg />
