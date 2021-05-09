@@ -7,7 +7,7 @@ export const References = ({ darkModeClass }) => {
     return (
         <div className="references-container">
             <Row>
-                <Col xs="11" md="12">
+                <Col xs="11" md="12" className="shrink-mobile-text-sm">
                     <p className="reference-quote">
                         "... I would highly recommend Luke to anyone.
                         He is a very well-rounded individual and is capable of working alone or in a team environment.

@@ -143,10 +143,10 @@ export const Experience = ({ darkModeClass, isMobile }) => {
 
             <Col xs="11" md="8">
                 <h2>{topics[currentTopic][0]}</h2>
-                <h4 className="shrink-mobile-text">{topics[currentTopic][1]}</h4>
+                <h4 className="shrink-mobile-text-sm">{topics[currentTopic][1]}</h4>
                 <p>{topics[currentTopic][2]}</p>
-                <p className="shrink-mobile-text">{topics[currentTopic][3]}</p>
-                <ul className="shrink-mobile-text">
+                <p className="shrink-mobile-text-sm">{topics[currentTopic][3]}</p>
+                <ul className="shrink-mobile-text-xs">
                     {topics[currentTopic][4].map((item, index) =>
                         <li key={index}>
                             {item}

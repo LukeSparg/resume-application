@@ -133,8 +133,8 @@ export const Skills = ({ darkModeClass, isMobile }) => {
             </Col>}
             <Col xs="11" md="8">
                 <h2>{skillInfo[activeSkill]["title"]}</h2>
-                <p className="shrink-mobile-text">{skillInfo[activeSkill]["text"]}</p>
-                <ul className="shrink-mobile-text">
+                <p className="shrink-mobile-text-sm">{skillInfo[activeSkill]["text"]}</p>
+                <ul className="shrink-mobile-text-xs">
                     {skillInfo[activeSkill]["list"].map((item, index) =>
                         <li key={index}>
                             {item}

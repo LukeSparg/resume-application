@@ -68,8 +68,8 @@ export const Contact = ({ darkModeClass, isMobile }) => {
             <Row>
                 <Col xs="11" md="12">
                     <form onSubmit={handleSubmit}>
-                        <h3>Or send me a message here:</h3>
-                        <p>Please include the best way for me to contact you.</p>
+                        <h3 className="shrink-mobile-text-sm">Or send me a message here:</h3>
+                        <p className="shrink-mobile-text-xs">Please include the best way for me to contact you.</p>
                         <textarea className="contact-info-text-area" onChange={e => setFormInfo(e.target.value)} />
                         <button className="contact-info-submit-button" type="submit">Send Message</button>
                         {formSubmitMessage && <p className="contact-info-submit-message">{formSubmitMessage}</p>}

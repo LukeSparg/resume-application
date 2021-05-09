@@ -140,7 +140,7 @@ export const LukeSparg = () => {
                             <Col sm="12" md="8">
                                 <Row>
                                     <Col sm="12">
-                                        <h1>
+                                        <h1 className={"text-shadow" + darkModeClass}>
                                             LUKE SPARG
                                         </h1>
                                     </Col>
@@ -181,7 +181,7 @@ export const LukeSparg = () => {
                                     {catagorySelected === "Education" &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <Education />
+                                            <Education darkModeClass={darkModeClass} />
                                         </div>
                                     </CSSTransition>
                                     }
