@@ -271,7 +271,7 @@ h1 {
 }
 .mobile-nav-menu-button {
     position: fixed;
-    right: 3em;
+    left: 0.75em;
     top: 1em;
 }
 .mobile-nav-menu-button:hover {
