@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
 import BackgroundPhoto from "../../assets/black-square.png";
@@ -38,8 +38,21 @@ export const LukeSparg = () => {
     //Setting up a isMobile variable to detect if the view should be mobile friendly
     const [width, setWidth] = useState(window.innerWidth);
     const [isMobile, setIsMobile] = useState(false);
-    //When viewed from mobile this will track if the nav menu is open.
-    const [mobileNavMenu, setMobileNavMenu] = useState(true);
+
+    //Detect if at the top of the page
+    const mainProfileInfo = useRef();
+    const [isTop, setIsTop] = useState(true);
+    useEffect(() => {
+        document.getElementById("scrolling-container").onscroll = function() {
+            let top = document.getElementById("scrolling-container").scrollTop;
+            if(top <= 300) {
+                setIsTop(true);
+            } else {
+                setIsTop(false);
+            }
+        };
+    }, []);
+
     function handleWindowSizeChange() {
         setWidth(window.innerWidth);
     }
@@ -125,7 +138,7 @@ export const LukeSparg = () => {
     }
 
     return (
-        <div className={"main-container" + darkModeClass}>
+        <div className={"main-container" + darkModeClass} id="scrolling-container">
             <div className="polygon-container">
                 {createPolygons()}
                 {polygons.map((polygon, index) => (
@@ -135,7 +148,7 @@ export const LukeSparg = () => {
             <div className="content-container">
                 <Row>
                     <Col sm="12" md="5" className="sub-content-container">
-                        <Row className="main-profile-info">
+                        <Row className="main-profile-info" id="main-profile-info">
                             <Col sm="12" md="8">
                                 <Row>
                                     <Col sm="12">
@@ -264,7 +277,7 @@ export const LukeSparg = () => {
                 </Row>
             </div>
             <DarkModeButton toggleDarkMode={toggleDarkMode} darkModeClass={darkModeClass} />
-            {isMobile && <MobileNavMenuButton mobileNavMenu={mobileNavMenu} setMobileNavMenu={setMobileNavMenu} />}
+            {isMobile && !isTop && <MobileNavMenuButton />}
         </div>
     );
 }
