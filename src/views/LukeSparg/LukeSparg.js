@@ -238,7 +238,7 @@ export const LukeSparg = () => {
                                         <Row className={"divider" + darkModeClass} />
                                     </Col>
                                 </Row>
-                                <Row className="mobile-content-section" id="Skill">
+                                <Row className="mobile-content-section" id="Skills">
                                     <Skills darkModeClass={darkModeClass} isMobile={isMobile} />
                                 </Row>
                                 <Row>
