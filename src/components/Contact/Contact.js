@@ -33,13 +33,13 @@ export const Contact = ({ darkModeClass, isMobile }) => {
     return (
         <div className={"contact-info" + darkModeClass}>
             <Row>
-                <Col xs="11" md="6">
+                <Col xs="12" md="6">
                     <a href="https://linkedin.com/in/luke-sparg" target="_blank">
                         <LinkedIn className={"contact-info-link-icon" + darkModeClass} />
                         LinkedIn
                     </a>
                 </Col>
-                <Col xs="11" md="6" className="contact-info-link-right">
+                <Col xs="12" md="6" className="contact-info-link-right">
                     <a href="https://www.instagram.com/lukesparg/" target="_blank">
                         <Instagram className={"contact-info-link-icon" + darkModeClass} />
                         Instagram
@@ -47,13 +47,13 @@ export const Contact = ({ darkModeClass, isMobile }) => {
                 </Col>
             </Row>
             <Row>
-                <Col xs="11" md="6">
+                <Col xs="12" md="6">
                     <a href="https://github.com/LukeSparg" target="_blank">
                         <GitHub className={"contact-info-link-icon" + darkModeClass} />
                         GitHub
                     </a>
                 </Col>
-                <Col xs="11" md="6" className="contact-info-link-right">
+                <Col xs="12" md="6" className="contact-info-link-right">
                     <a href="https://www.facebook.com/luke.sparg" target="_blank">
                         <Facebook className={"contact-info-link-icon" + darkModeClass} />
                         Facebook
@@ -61,12 +61,12 @@ export const Contact = ({ darkModeClass, isMobile }) => {
                 </Col>
             </Row>
             <Row>
-                <Col xs="11" md="12">
+                <Col xs="12">
                     <Row className={"divider" + darkModeClass} />
                 </Col>
             </Row>
             <Row>
-                <Col xs="11" md="12">
+                <Col xs="12">
                     <form onSubmit={handleSubmit}>
                         <h3 className="shrink-mobile-text-sm">Or send me a message here:</h3>
                         <p className="shrink-mobile-text-xs">Please include the best way for me to contact you.</p>

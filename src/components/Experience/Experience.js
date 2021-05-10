@@ -110,7 +110,7 @@ export const Experience = ({ darkModeClass, isMobile }) => {
                 </Row>
             </Col>}
             {isMobile &&
-            <Col xs="11" className="experience-title-box-container-mobile">
+            <Col xs="12" className="experience-title-box-container-mobile">
                 {(currentTopic !== "honors") ?
                     <animated.div style={ pulseAnimation } onClick={() => setCurrentTopic("honors")} className={"experience-title-box" + darkModeClass}>
                         HONORS
@@ -141,7 +141,7 @@ export const Experience = ({ darkModeClass, isMobile }) => {
             </Col>
             }
 
-            <Col xs="11" md="8">
+            <Col xs="12" md="8">
                 <h2>{topics[currentTopic][0]}</h2>
                 <h4 className="shrink-mobile-text-sm">{topics[currentTopic][1]}</h4>
                 <p>{topics[currentTopic][2]}</p>

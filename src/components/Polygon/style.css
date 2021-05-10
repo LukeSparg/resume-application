@@ -4,6 +4,6 @@ polygon {
     transition: all 1000ms;
 }
 svg {
-    position: absolute;
+    position: fixed;
     transition: all 1000ms;
 }

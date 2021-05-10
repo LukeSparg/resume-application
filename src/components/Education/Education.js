@@ -6,7 +6,7 @@ export const Education = ({ darkModeClass }) => {
 
     return (
         <Row>
-            <Col xs="11" md="12">
+            <Col xs="12">
                 <h2 className={"text-shadow" + darkModeClass}>UNIVERSITY OF BRITISH COLUMBIA</h2>
                 <h3 className="shrink-mobile-text-sm">BSc. (Hons.) in Computer Science</h3>
                 <p className="shrink-mobile-text-sm">Since 2017, I have been completing a BSc. majoring in computer science. Throughout my education I have finished coursework in a variety of topics, some examples include:</p>

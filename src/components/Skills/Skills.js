@@ -102,7 +102,7 @@ export const Skills = ({ darkModeClass, isMobile }) => {
                 </Row>
             </Col>}
             {isMobile &&
-            <Col xs="11" className="skill-title-box-container-mobile">
+            <Col xs="12" className="skill-title-box-container-mobile">
                     {(activeSkill !== "data") ?
                         <animated.div style={ pulseAnimation } onClick={() => setActiveSkill("data")} className={"skill-title-box" + darkModeClass}>
                             DATA
@@ -131,7 +131,7 @@ export const Skills = ({ darkModeClass, isMobile }) => {
                         </div>
                     }
             </Col>}
-            <Col xs="11" md="8">
+            <Col xs="12" md="8">
                 <h2>{skillInfo[activeSkill]["title"]}</h2>
                 <p className="shrink-mobile-text-sm">{skillInfo[activeSkill]["text"]}</p>
                 <ul className="shrink-mobile-text-xs">
