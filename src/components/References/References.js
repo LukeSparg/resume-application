@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Button, ButtonGroup } from "reactstrap";
 import './style.css';
 
-export const References = ({ darkModeClass }) => {
+export const References = ({ darkModeClass, isMobile }) => {
 
     return (
         <div className="references-container">
             <Row>
-                <Col xs="11" md="12" className="shrink-mobile-text-sm">
+                <Col xs="12"className="shrink-mobile-text-sm">
                     <p className="reference-quote">
                         "... I would highly recommend Luke to anyone.
                         He is a very well-rounded individual and is capable of working alone or in a team environment.
@@ -22,11 +22,12 @@ export const References = ({ darkModeClass }) => {
                     </p>
                 </Col>
             </Row>
-            <Col xs="11" md="12">
+            {!isMobile &&
+            <Col xs="12">
                 <Row className={"divider" + darkModeClass} />
-            </Col>
+            </Col>}
             <Row>
-                <Col xs="11" md="12">
+                <Col xs="12">
                     <p>
                         For the full reference, as well as additional references, please contact me in the contact tab.
                     </p>

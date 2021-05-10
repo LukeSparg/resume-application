@@ -76,7 +76,7 @@ export const LukeSparg = () => {
         //Changes the selected catagory
         setCatagorySelected(event.target.innerHTML);
         if(isMobile) {
-            setMobileNavMenu(false);
+            document.getElementById(event.target.innerHTML).scrollIntoView({ block: 'center',  behavior: 'smooth' });
         }
     }
 
@@ -134,8 +134,7 @@ export const LukeSparg = () => {
             </div>
             <div className="content-container">
                 <Row>
-                    {(!isMobile || mobileNavMenu) &&
-                    <Col sm={{ size: 10 }} md="5" className="sub-content-container">
+                    <Col sm="12" md="5" className="sub-content-container">
                         <Row className="main-profile-info">
                             <Col sm="12" md="8">
                                 <Row>
@@ -157,7 +156,7 @@ export const LukeSparg = () => {
                                 <img className={"profile-picture" + darkModeClass} src={ProfilePhoto} alt="Profile Picture" />
                             </Col>
                         </Row>
-                        <Row className={"divider" + darkModeClass} />
+                        <Row className={"divider-clear"} />
                         <Row className="catagory-selector">
                             <Col sm="12">
                                 <button className={"carousel-button" + ((catagorySelected==="Education") ? "-active" : "") + darkModeClass} onClick={function(event) {handleCatagorySelector(event)}}>Education</button>
@@ -172,41 +171,41 @@ export const LukeSparg = () => {
                                 <FunFacts darkModeClass={darkModeClass} eventState={catagorySelected} />
                             </Col>
                         </Row>
-                    </Col>}
-                    {(!isMobile || !mobileNavMenu) &&
-                    <Col sm={{ size: 10 }} md="5" className="sub-content-container">
+                    </Col>
+                    <Col sm="12" md="5" className="sub-content-container">
+                        {!isMobile &&
                         <Row className="carousel-container">
                             <Col sm="12">
                                 <TransitionGroup component={null}>
-                                    {catagorySelected === "Education" &&
+                                    {(catagorySelected === "Education")  &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
                                             <Education darkModeClass={darkModeClass} />
                                         </div>
                                     </CSSTransition>
                                     }
-                                    {catagorySelected === "Experience" &&
+                                    {(catagorySelected === "Experience") &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
                                             <Experience darkModeClass={darkModeClass} isMobile={isMobile} />
                                         </div>
                                     </CSSTransition>
                                     }
-                                    {catagorySelected === "Skills" &&
+                                    {(catagorySelected === "Skills") &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
                                             <Skills darkModeClass={darkModeClass} isMobile={isMobile} />
                                         </div>
                                     </CSSTransition>
                                     }
-                                    {catagorySelected === "References" &&
+                                    {(catagorySelected === "References") &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
-                                            <References darkModeClass={darkModeClass} />
+                                            <References darkModeClass={darkModeClass} isMobile={isMobile} />
                                         </div>
                                     </CSSTransition>
                                     }
-                                    {catagorySelected === "Contact" &&
+                                    {(catagorySelected === "Contact") &&
                                     <CSSTransition classNames="sliding-carousel" timeout={1000}>
                                         <div className="sliding-carousel">
                                             <Contact darkModeClass={darkModeClass} isMobile={isMobile} />
@@ -215,8 +214,53 @@ export const LukeSparg = () => {
                                     }
                                 </TransitionGroup>
                             </Col>
-                        </Row>
-                    </Col>}
+                        </Row>}
+                        {isMobile && (
+                            <Col>
+                                <Row className="mobile-height-spacer-sm">
+                                    <Col>
+                                        <Row className={"divider" + darkModeClass} />
+                                    </Col>
+                                </Row>
+                                <Row className="mobile-content-section" id="Education">
+                                    <Education darkModeClass={darkModeClass} />
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Row className={"divider" + darkModeClass} />
+                                    </Col>
+                                </Row>
+                                <Row className="mobile-content-section" id="Experience">
+                                    <Experience darkModeClass={darkModeClass} isMobile={isMobile} />
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Row className={"divider" + darkModeClass} />
+                                    </Col>
+                                </Row>
+                                <Row className="mobile-content-section" id="Skill">
+                                    <Skills darkModeClass={darkModeClass} isMobile={isMobile} />
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Row className={"divider" + darkModeClass} />
+                                    </Col>
+                                </Row>
+                                <Row className="mobile-content-section" id="References">
+                                    <References darkModeClass={darkModeClass} isMobile={isMobile} />
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Row className={"divider" + darkModeClass} />
+                                    </Col>
+                                </Row>
+                                <Row className="mobile-content-section" id="Contact">
+                                    <Contact darkModeClass={darkModeClass} isMobile={isMobile} />
+                                </Row>
+                                <Row className="mobile-height-spacer-md" />
+                            </Col>
+                        )}
+                    </Col>
                 </Row>
             </div>
             <DarkModeButton toggleDarkMode={toggleDarkMode} darkModeClass={darkModeClass} />
